@@ -16,8 +16,9 @@
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <!--ajax search jqury-->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.0/jquery.min.js">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/algoliasearch/3.24.0/algoliasearch.jquery.min.js">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/algoliasearch/3.24.0/algoliasearch.jquery.min.js"></script>
 
     <style>
         body {
@@ -82,21 +83,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
+
     <script type="text/javascript">
     $('#search').on('keyup',function(){
         $value=$(this).val();
         $.ajax({
             type : 'get',
-            url  : '{{ URL::to('task')}}',
-            data : {},
+            url  : '{{URL::to('search')}}',
+            data : {'search':$value},
             success : function(data){
                 console.log(data);
-                //$('tbody').html(data);
+                $('tbody').html(data);
             }
         });
     })
-
     </script>
+
 
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>

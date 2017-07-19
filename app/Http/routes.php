@@ -17,6 +17,10 @@ Route::get('/', function () {
 
 Route::resource('task','TaskController');
 
+Route::get('search','TaskController@search');
+
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+

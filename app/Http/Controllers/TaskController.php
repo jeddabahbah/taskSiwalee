@@ -6,7 +6,7 @@ use App\Task;
 use Illuminate\Http\Request;
 
 use App\Http\Requests\TaskRequest;
-use DB_DATABASE;
+use DB;
 
 class TaskController extends Controller
 {
@@ -90,25 +90,29 @@ class TaskController extends Controller
         return redirect()->route('task.index')->with('message','item has been deleted successfully');
     }
 
-   public function search(TaskRequest $request, Task $task)
+
+    public function search(Request $req)
     {
-        if($request->ajax()){
-            $output="";
-            $task=DB_DATABASE::table('tasks')->where('title','LIKE','%'.$task->search.'%')->get();
+        if($req->ajax())
+        {
+           $output="";
+           $task=DB::table('tasks')->where('title','LIKE','%'.$req->search.'%')
+                                   ->orWhere('body','LIKE','%'.$req->search.'%')->get();
+           //$task=DB::table('tasks')->where('title','LIKE','%'.$req['data'].'%')->get();
 
             if ($task) {
-                foreach ($task as $key => $tasks) {
-                    $output='<tr>'.
-                            '<td>'.$tasks->id.'</td>'.
-                            '<td>'.$tasks->title.'</td>'.
-                            '<td>'.$tasks->body.'</td>'.
-                            /*'<td>'.$tasks->id.'</td>'.
-                            '<td>'.$tasks->id.'</td>'.*/
-                            '</tr>';
+                foreach ($task as $key => $tasks){
+
+                    $output .= '<tr>'.
+                               '<td>'.$tasks->id.'</td>'.
+                               '<td>'.$tasks->title.'</td>'.
+                               '<td>'.$tasks->body.'</td>'.
+                               '</tr>';
                 }
 
                 return Response($output);
-            }
+                }
+
         }
     }
     

@@ -7,8 +7,9 @@
 
         <input type="text" class="form-control" name="search" id="search"></input><br><br>
 
-            <tbody>
+            
             <table class="table table-bordered table-hover">
+                <thead>
                     <tr>
                         <th>ID</th>
                         <th>Title</th>
@@ -16,7 +17,11 @@
                         <th>Created</th>
                         <th>Updated</th>
                     </tr>
+                </thead>
             </table>
+            
+            <tbody>
+
             </tbody>
             
         @if(Session::has('message'))
