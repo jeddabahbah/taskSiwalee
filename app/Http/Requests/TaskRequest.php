@@ -24,8 +24,17 @@ class TaskRequest extends Request
     public function rules()
     {
         return [
-            'title'=>'required',
-            'body' =>'required'
+            'Other'=>'required',
+            'Name'=>'required',
+            'Platecar'=>'required',
+            'IdCardT'=>'required',
+            'IDCard'=>'required',
+            'Telhome'=>'required',
+            'Telhand'=>'required',
+            'Carbrand1'=>'required',
+            'CarColor1'=>'required',
+            'CtID'=>'required',
+            'Status'=>'required'
         ];
     }
 }

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Task;
 use Illuminate\Http\Request;
-
 use App\Http\Requests\TaskRequest;
 use DB;
 
@@ -96,8 +95,8 @@ class TaskController extends Controller
         if($req->ajax())
         {
            $output="";
-           $task=DB::table('tasks')->where('title','LIKE','%'.$req->search.'%')
-                                   ->orWhere('body','LIKE','%'.$req->search.'%')->get();
+           $task=DB::table('tasks')->where('Name','LIKE','%'.$req->search.'%')
+                                   ->orWhere('IdCardT','LIKE','%'.$req->search.'%')->get();
            //$task=DB::table('tasks')->where('title','LIKE','%'.$req['data'].'%')->get();
 
             if ($task) {
@@ -105,8 +104,26 @@ class TaskController extends Controller
 
                     $output .= '<tr>'.
                                '<td>'.$tasks->id.'</td>'.
-                               '<td>'.$tasks->title.'</td>'.
-                               '<td>'.$tasks->body.'</td>'.
+                               '<td>'.$tasks->Other.'</td>'.
+                               '<td>'.$tasks->Name.'</td>'.
+                               '<td>'.$tasks->Platecar.'</td>'.
+                               '<td>'.$tasks->IdCardT.'</td>'.
+                               '<td>'.$tasks->IDCard.'</td>'.
+                               '<td>'.$tasks->Telhome.'</td>'.
+                               '<td>'.$tasks->Telhand.'</td>'.
+                               '<td>'.$tasks->Carbrand1.'</td>'.
+                               '<td>'.$tasks->CarColor1.'</td>'.
+                               '<td>'.$tasks->CtID.'</td>'.
+                               '<td>'.$tasks->Status.'</td>'.
+                               '<td>'.
+
+                                {!! Form::open(array('route' => ['task.destroy',$task->id],'method'=>'DELETE')) !!}                            
+                                    {{ link_to_route('task.edit','Edit',[$task->id],['class'=>'btn btn-primary']) }}
+                                |
+                                    {!! Form::button('Delete',['type'=>'submit','class'=>'btn btn-danger']) !!}
+                                {!! Form::close() !!}
+
+                                .'</td>'.
                                '</tr>';
                 }
 

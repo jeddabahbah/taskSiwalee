@@ -12,16 +12,24 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Title</th>
-                        <th>Body</th>
-                        <th>Created</th>
-                        <th>Updated</th>
+                        <th>Other</th>
+                        <th>Name</th>
+                        <th>Platecar</th>
+                        <th>IdCardT</th>
+                        <th>IDCard</th>
+                        <th>Telhome</th>
+                        <th>Telhand</th>
+                        <th>Carbrand1</th>
+                        <th>CarColor1</th>
+                        <th>CtID</th>
+                        <th>Status</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
             </table>
             
             <tbody>
-
+                
             </tbody>
             
         @if(Session::has('message'))
@@ -36,13 +44,34 @@
 
                 <table class="table">
                     <tr>
-                        <th>Title</th>
+                        <th>Other</th>
+                        <th>Name</th>
+                        <th>Platecar</th>
+                        <th>IdCardT</th>
+                        <th>IDCard</th>
+                        <th>Telhome</th>
+                        <th>Telhand</th>
+                        <th>Carbrand1</th>
+                        <th>CarColor1</th>
+                        <th>CtID</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 
                     @foreach($tasks as $task)
                         <tr>
-                            <td>{{ link_to_route('task.show',$task->title,[$task->id]) }}</td>
+                            <td>{{ link_to_route('task.show',$task->Other,[$task->id]) }}</td>
+                            <td>{{ link_to_route('task.show',$task->Name,[$task->id]) }}</td>
+                            <td>{{ link_to_route('task.show',$task->Platecar,[$task->id]) }}</td>
+                            <td>{{ link_to_route('task.show',$task->IdCardT,[$task->id]) }}</td>
+                            <td>{{ link_to_route('task.show',$task->IDCard,[$task->id]) }}</td>
+                            <td>{{ link_to_route('task.show',$task->Telhome,[$task->id]) }}</td>
+                            <td>{{ link_to_route('task.show',$task->Telhand,[$task->id]) }}</td>
+                            <td>{{ link_to_route('task.show',$task->Carbrand1,[$task->id]) }}</td>
+                            <td>{{ link_to_route('task.show',$task->CarColor1,[$task->id]) }}</td>
+                            <td>{{ link_to_route('task.show',$task->CtID,[$task->id]) }}</td>
+                            <td>{{ link_to_route('task.show',$task->Status,[$task->id]) }}</td>
+                            
                             <td>
                                 {!! Form::open(array('route' => ['task.destroy',$task->id],'method'=>'DELETE')) !!}                            
                                     {{ link_to_route('task.edit','Edit',[$task->id],['class'=>'btn btn-primary']) }}

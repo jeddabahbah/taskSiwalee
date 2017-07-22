@@ -11,14 +11,60 @@
                         
                         {!! Form::open(array('route' => 'task.store')) !!}
                             <div class="form-group">
-                                {!! Form::label('title','Enter title') !!}
-                                {!! Form::text('title',null,['class'=>'form-control'] ) !!}
+                                {!! Form::label('Other','Enter บ้านเลขที่') !!}
+                                {!! Form::text('Other',null,['class'=>'form-control'] ) !!}
                             </div>
 
                             <div class="form-group">
-                                {!! Form::label('title','Enter title') !!}
-                                {!! Form::textarea('body',null,['class'=>'form-control'] ) !!}
+                                {!! Form::label('Name','Enter ชื่อ') !!}
+                                {!! Form::text('Name',null,['class'=>'form-control'] ) !!}
                             </div>
+
+                            <div class="form-group">
+                                {!! Form::label('Platecar','Enter ทะเบียนรถ') !!}
+                                {!! Form::text('Platecar',null,['class'=>'form-control'] ) !!}
+                            </div>
+
+                            <div class="form-group">
+                                {!! Form::label('IdCardT','Enter IdCardT') !!}
+                                {!! Form::text('IdCardT',null,['class'=>'form-control'] ) !!}
+                            </div>
+
+                            <div class="form-group">
+                                {!! Form::label('IDCard','Enter IDCard') !!}
+                                {!! Form::text('IDCard',null,['class'=>'form-control'] ) !!}
+                            </div>
+
+                            <div class="form-group">
+                                {!! Form::label('Telhome','Enter Telhome') !!}
+                                {!! Form::text('Telhome',null,['class'=>'form-control'] ) !!}
+                            </div>
+
+                            <div class="form-group">
+                                {!! Form::label('Telhand','Enter Telhand') !!}
+                                {!! Form::text('Telhand',null,['class'=>'form-control'] ) !!}
+                            </div>
+
+                            <div class="form-group">
+                                {!! Form::label('Carbrand1','Enter Carbrand1') !!}
+                                {!! Form::text('Carbrand1',null,['class'=>'form-control'] ) !!}
+                            </div>
+
+                            <div class="form-group">
+                                {!! Form::label('CarColor1','Enter CarColor1') !!}
+                                {!! Form::text('CarColor1',null,['class'=>'form-control'] ) !!}
+                            </div>
+
+                            <div class="form-group">
+                                {!! Form::label('CtID','Enter CtID') !!}
+                                {!! Form::text('CtID',null,['class'=>'form-control'] ) !!}
+                            </div>
+
+                            <div class="form-group">
+                                {!! Form::label('Status','Enter Status') !!}
+                                {!! Form::text('Status',null,['class'=>'form-control'] ) !!}
+                            </div>
+
 
                             <div class="form-group">
                                 {!! Form::button('Create',['type'=>'submit','class'=>'btn btn-primary']) !!}                            
