@@ -95,8 +95,8 @@ class TaskController extends Controller
         if($req->ajax())
         {
            $output="";
-           $task=DB::table('tasks')->where('Name','LIKE','%'.$req->search.'%')
-                                   ->orWhere('IdCardT','LIKE','%'.$req->search.'%')->get();
+           $task=DB::table('tasks')->where('Other','LIKE','%'.$req->search.'%')
+                                   ->orWhere('Name','LIKE','%'.$req->search.'%')->get();
            //$task=DB::table('tasks')->where('title','LIKE','%'.$req['data'].'%')->get();
 
             if ($task) {
@@ -115,15 +115,7 @@ class TaskController extends Controller
                                '<td>'.$tasks->CarColor1.'</td>'.
                                '<td>'.$tasks->CtID.'</td>'.
                                '<td>'.$tasks->Status.'</td>'.
-                               '<td>'.
-
-                                {!! Form::open(array('route' => ['task.destroy',$task->id],'method'=>'DELETE')) !!}                            
-                                    {{ link_to_route('task.edit','Edit',[$task->id],['class'=>'btn btn-primary']) }}
-                                |
-                                    {!! Form::button('Delete',['type'=>'submit','class'=>'btn btn-danger']) !!}
-                                {!! Form::close() !!}
-
-                                .'</td>'.
+                               
                                '</tr>';
                 }
 

@@ -66,7 +66,6 @@
                             </div>
 
 
-
                             <div class="form-group">
                                 {!! Form::button('Update',['type'=>'submit','class'=>'btn btn-primary']) !!}                            
                             </div>

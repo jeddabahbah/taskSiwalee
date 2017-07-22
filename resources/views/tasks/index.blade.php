@@ -25,12 +25,13 @@
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
+                    <tbody>
+                    </tbody>
+
                 </thead>
             </table>
             
-            <tbody>
-                
-            </tbody>
+            
             
         @if(Session::has('message'))
             <div class="alert alert-success">{{ Session::get('message') }}</div>
