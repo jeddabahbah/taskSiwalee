@@ -96,7 +96,8 @@ class TaskController extends Controller
         {
            $output="";
            $task=DB::table('tasks')->where('Other','LIKE','%'.$req->search.'%')
-                                   ->orWhere('Name','LIKE','%'.$req->search.'%')->get();
+                                   ->orWhere('Name','LIKE','%'.$req->search.'%')
+                                   ->orWhere('IdCardT','LIKE','%'.$req->search.'%')->get();
            //$task=DB::table('tasks')->where('title','LIKE','%'.$req['data'].'%')->get();
 
             if ($task) {
@@ -115,7 +116,13 @@ class TaskController extends Controller
                                '<td>'.$tasks->CarColor1.'</td>'.
                                '<td>'.$tasks->CtID.'</td>'.
                                '<td>'.$tasks->Status.'</td>'.
-                               
+                               '<td>
+                               <form method="POST" action="http://task.siwalee.com/task/'.$tasks->id.'" accept-charset="UTF-8"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="ZOqHLDfu5v5OeNQDjTs1TkbDd4WBuMxbZcz7W2Il">                            
+                                    <a href="http://task.siwalee.com/task/'.$tasks->id.'/edit" class="btn btn-primary">Edit</a>
+                                |
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                               </td>'.
                                '</tr>';
                 }
 
