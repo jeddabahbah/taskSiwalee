@@ -70,6 +70,8 @@
                                 {!! Form::button('Create',['type'=>'submit','class'=>'btn btn-primary']) !!}                            
                             </div>
 
+                            
+
                         {!! Form::close() !!}
                 </div>
             </div>
