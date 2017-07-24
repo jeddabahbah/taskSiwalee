@@ -88,7 +88,7 @@
             </div>
 
             
-            {{ link_to_route('task.create','Add new task',null,['class'=>'btn btn-success']) }}
+            {{ link_to_route('task.create','Add Member',null,['class'=>'btn btn-success']) }} <br><br><br>
         </div>
     </div>
 </div>

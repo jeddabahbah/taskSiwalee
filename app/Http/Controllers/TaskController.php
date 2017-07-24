@@ -20,6 +20,7 @@ class TaskController extends Controller
         return view('tasks.index',compact('tasks'));
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -64,6 +65,7 @@ class TaskController extends Controller
         return view('tasks.edit',compact('task'));
     }
 
+
     /**
      * Update the specified resource in storage.
      *
@@ -76,6 +78,12 @@ class TaskController extends Controller
         $task->update($request->all());   
         return redirect()->route('task.index')->with('message','item has been updated successfully');
     }
+
+ /*   public function updatecard(TaskRequest $request, Task $task)
+    {
+        $task->update($request->all());   
+        return redirect()->route('task.indexeditcard')->with('message','item has been updated successfully');
+    }*/
 
     /**
      * Remove the specified resource from storage.
@@ -96,7 +104,9 @@ class TaskController extends Controller
         {
            $output="";
            $task=DB::table('tasks')->where('Other','LIKE','%'.$req->search.'%')
+                                   ->orWhere('Platecar','LIKE','%'.$req->search.'%')
                                    ->orWhere('Name','LIKE','%'.$req->search.'%')
+                                   ->orWhere('Telhand','LIKE','%'.$req->search.'%')
                                    ->orWhere('IdCardT','LIKE','%'.$req->search.'%')->get();
            //$task=DB::table('tasks')->where('title','LIKE','%'.$req['data'].'%')->get();
 
@@ -122,6 +132,49 @@ class TaskController extends Controller
                                 |
                                     <button type="submit" class="btn btn-danger">Delete</button>
                                 </form>
+                               </td>'.
+                               '</tr>';
+                }
+
+                return Response($output);
+                }
+
+        }
+    }
+
+
+    public function search2(Request $req)
+    {
+        if($req->ajax())
+        {
+           $output="";
+           $task=DB::table('tasks')->where('Other','LIKE','%'.$req->search.'%')
+                                   ->orWhere('Platecar','LIKE','%'.$req->search.'%')
+                                   ->orWhere('Name','LIKE','%'.$req->search.'%')
+                                   ->orWhere('Telhand','LIKE','%'.$req->search.'%')
+                                   ->orWhere('IdCardT','LIKE','%'.$req->search.'%')->get();
+           //$task=DB::table('tasks')->where('title','LIKE','%'.$req['data'].'%')->get();
+
+            if ($task) {
+                foreach ($task as $key => $tasks){
+
+                    $output .= '<tr>'.
+                               '<td>'.$tasks->id.'</td>'.
+                               '<td>'.$tasks->Other.'</td>'.
+                               '<td>'.$tasks->Name.'</td>'.
+                               '<td>'.$tasks->Platecar.'</td>'.
+                               '<td>'.$tasks->IdCardT.'</td>'.
+                               '<td>'.$tasks->IDCard.'</td>'.
+                               /*'<td>'.$tasks->Telhome.'</td>'.
+                               '<td>'.$tasks->Telhand.'</td>'.
+                               '<td>'.$tasks->Carbrand1.'</td>'.
+                               '<td>'.$tasks->CarColor1.'</td>'.*/
+                               '<td>'.$tasks->CtID.'</td>'.
+                               '<td>'.$tasks->Status.'</td>'.
+                               '<td>                      
+                                    <a href="http://task.siwalee.com/task/'.$tasks->id.'/editcard" class="btn btn-primary">Edit</a>
+                               
+                        
                                </td>'.
                                '</tr>';
                 }

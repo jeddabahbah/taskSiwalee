@@ -5,13 +5,13 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Update task</div>
+                <div class="panel-heading">Update changecard</div>
 
                 <div class="panel-body">
                         
-                        {!! Form::model($task,array('route' => ['task.update',$task->id],'method'=>'PUT')) !!}
+                    {!! Form::model($changecard,array('route' => ['editcard.update',$changecard->id],'method'=>'PUT')) !!}
                             <div class="form-group">
-                                {!! Form::label('Other','Enter บ้านเลขที่') !!}
+                                {!! Form::label('Other','Entersss บ้านเลขที่') !!}
                                 {!! Form::text('Other',null,['class'=>'form-control'] ) !!}
                             </div>
 
@@ -30,30 +30,12 @@
                                 {!! Form::text('IdCardT',null,['class'=>'form-control'] ) !!}
                             </div>
 
-                            <div class="form-group">
-                                {!! Form::label('IDCard','Enter IDCard') !!}
-                                {!! Form::text('IDCard',null,['class'=>'form-control'] ) !!}
-                            </div>
 
                             <div class="form-group">
                                 {!! Form::label('Telhome','Enter Telhome') !!}
                                 {!! Form::text('Telhome',null,['class'=>'form-control'] ) !!}
                             </div>
 
-                            <div class="form-group">
-                                {!! Form::label('Telhand','Enter Telhand') !!}
-                                {!! Form::text('Telhand',null,['class'=>'form-control'] ) !!}
-                            </div>
-
-                            <div class="form-group">
-                                {!! Form::label('Carbrand1','Enter Carbrand1') !!}
-                                {!! Form::text('Carbrand1',null,['class'=>'form-control'] ) !!}
-                            </div>
-
-                            <div class="form-group">
-                                {!! Form::label('CarColor1','Enter CarColor1') !!}
-                                {!! Form::text('CarColor1',null,['class'=>'form-control'] ) !!}
-                            </div>
 
                             <div class="form-group">
                                 {!! Form::label('CtID','Enter CtID') !!}

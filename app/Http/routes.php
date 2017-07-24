@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Route::resource('task','TaskController');
 
+Route::resource('editcard','ChangeCardController');
+
 Route::get('search','TaskController@search');
 
 Route::auth();
