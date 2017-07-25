@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTasksTable extends Migration
+class CreateCardsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -26,10 +26,7 @@ class CreateTasksTable extends Migration
             $table->string('CtID');
             $table->string('Status');
             $table->timestamps();
-
-            
         });
-
     }
 
     /**
@@ -39,6 +36,6 @@ class CreateTasksTable extends Migration
      */
     public function down()
     {
-        Schema::drop('tasks');
+        Schema::drop('cards');
     }
 }

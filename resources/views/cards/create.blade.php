@@ -5,13 +5,13 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Update changecard</div>
+                <div class="panel-heading">Tasks</div>
 
                 <div class="panel-body">
                         
-                    {!! Form::model($changecard,array('route' => ['editcard.update',$changecard->id],'method'=>'PUT')) !!}
+                        {!! Form::open(array('route' => 'card.store')) !!}
                             <div class="form-group">
-                                {!! Form::label('Other','Entersss บ้านเลขที่') !!}
+                                {!! Form::label('Other','Enter บ้านเลขที่') !!}
                                 {!! Form::text('Other',null,['class'=>'form-control'] ) !!}
                             </div>
 
@@ -30,12 +30,10 @@
                                 {!! Form::text('IdCardT',null,['class'=>'form-control'] ) !!}
                             </div>
 
-
                             <div class="form-group">
-                                {!! Form::label('Telhome','Enter Telhome') !!}
-                                {!! Form::text('Telhome',null,['class'=>'form-control'] ) !!}
+                                {!! Form::label('Telhand','Enter Telhand') !!}
+                                {!! Form::text('Telhand',null,['class'=>'form-control'] ) !!}
                             </div>
-
 
                             <div class="form-group">
                                 {!! Form::label('CtID','Enter CtID') !!}
@@ -49,12 +47,12 @@
 
 
                             <div class="form-group">
-                                {!! Form::button('Update',['type'=>'submit','class'=>'btn btn-primary']) !!}                            
+                                {!! Form::button('Create',['type'=>'submit','class'=>'btn btn-primary']) !!}                            
                             </div>
 
+                            
 
                         {!! Form::close() !!}
-                        
                 </div>
             </div>
 
