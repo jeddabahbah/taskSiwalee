@@ -61,7 +61,7 @@ class ChangeCardController extends Controller
      */
     public function edit(Task $changecard)
     {
-        return view('changecards.edit',compact('changecard'));
+        return view('changecards.editcard',compact('changecard'));
 
     }
 
@@ -89,4 +89,40 @@ class ChangeCardController extends Controller
          $changecard->delete();
         return redirect()->route('editcard.index')->with('message','item has been deleted successfully');
     }
+
+     public function search2(Request $req)
+    {
+        if($req->ajax())
+        {
+           $output="";
+           $changecard=DB::table('tasks')->where('Other','LIKE','%'.$req->search.'%')
+                                   ->orWhere('Platecar','LIKE','%'.$req->search.'%')
+                                   ->orWhere('Name','LIKE','%'.$req->search.'%')
+                                   ->orWhere('Telhand','LIKE','%'.$req->search.'%')
+                                   ->orWhere('IdCardT','LIKE','%'.$req->search.'%')->get();
+           
+
+            if ($changecard) {
+                foreach ($changecard as $key => $changecards){
+
+                    $output .= '<tr>'.
+                               '<td>'.$changecards->Other.'</td>'.
+                               '<td>'.$changecards->Name.'</td>'.
+                               '<td>'.$changecards->Platecar.'</td>'.
+                               '<td>'.$changecards->IdCardT.'</td>'.
+                               '<td>'.$changecards->IDCard.'</td>'.
+                               '<td>'.$changecards->CtID.'</td>'.
+                               '<td>'.$changecards->Status.'</td>'.
+                               '<td>                      
+                                    <a href="http://task.siwalee.com/task/'.$changecards->id.'/editcard" class="btn btn-primary">Edit</a>
+                               </td>'.
+                               '</tr>';
+                }
+
+                return Response($output);
+                }
+
+        }
+    }
+    
 }

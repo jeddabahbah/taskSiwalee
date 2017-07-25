@@ -21,6 +21,8 @@ Route::resource('editcard','ChangeCardController');
 
 Route::get('search','TaskController@search');
 
+Route::get('search2','TaskController@search2');
+
 Route::auth();
 
 Route::get('/home', 'HomeController@index');

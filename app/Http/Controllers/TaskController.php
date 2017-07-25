@@ -143,47 +143,6 @@ class TaskController extends Controller
     }
 
 
-    public function search2(Request $req)
-    {
-        if($req->ajax())
-        {
-           $output="";
-           $task=DB::table('tasks')->where('Other','LIKE','%'.$req->search.'%')
-                                   ->orWhere('Platecar','LIKE','%'.$req->search.'%')
-                                   ->orWhere('Name','LIKE','%'.$req->search.'%')
-                                   ->orWhere('Telhand','LIKE','%'.$req->search.'%')
-                                   ->orWhere('IdCardT','LIKE','%'.$req->search.'%')->get();
-           //$task=DB::table('tasks')->where('title','LIKE','%'.$req['data'].'%')->get();
-
-            if ($task) {
-                foreach ($task as $key => $tasks){
-
-                    $output .= '<tr>'.
-                               '<td>'.$tasks->id.'</td>'.
-                               '<td>'.$tasks->Other.'</td>'.
-                               '<td>'.$tasks->Name.'</td>'.
-                               '<td>'.$tasks->Platecar.'</td>'.
-                               '<td>'.$tasks->IdCardT.'</td>'.
-                               '<td>'.$tasks->IDCard.'</td>'.
-                               /*'<td>'.$tasks->Telhome.'</td>'.
-                               '<td>'.$tasks->Telhand.'</td>'.
-                               '<td>'.$tasks->Carbrand1.'</td>'.
-                               '<td>'.$tasks->CarColor1.'</td>'.*/
-                               '<td>'.$tasks->CtID.'</td>'.
-                               '<td>'.$tasks->Status.'</td>'.
-                               '<td>                      
-                                    <a href="http://task.siwalee.com/task/'.$tasks->id.'/editcard" class="btn btn-primary">Edit</a>
-                               
-                        
-                               </td>'.
-                               '</tr>';
-                }
-
-                return Response($output);
-                }
-
-        }
-    }
-    
+   
 
 }
