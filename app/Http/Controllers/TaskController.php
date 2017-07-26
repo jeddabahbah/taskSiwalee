@@ -104,9 +104,9 @@ class TaskController extends Controller
         {
            $output="";
            $task=DB::table('tasks')->where('Other','LIKE','%'.$req->search.'%')
-                                   ->orWhere('Platecar','LIKE','%'.$req->search.'%')
-                                   ->orWhere('Name','LIKE','%'.$req->search.'%')
-                                   ->orWhere('Telhand','LIKE','%'.$req->search.'%')
+                                   //->orWhere('Platecar','LIKE','%'.$req->search.'%')
+                                   //->orWhere('Name','LIKE','%'.$req->search.'%')
+                                   //->orWhere('Telhand','LIKE','%'.$req->search.'%')
                                    ->orWhere('IdCardT','LIKE','%'.$req->search.'%')->get();
            //$task=DB::table('tasks')->where('title','LIKE','%'.$req['data'].'%')->get();
 
@@ -114,23 +114,23 @@ class TaskController extends Controller
                 foreach ($task as $key => $tasks){
 
                     $output .= '<tr>'.
-                               '<td>'.$tasks->id.'</td>'.
+                               //'<td>'.$tasks->id.'</td>'.
                                '<td>'.$tasks->Other.'</td>'.
                                '<td>'.$tasks->Name.'</td>'.
                                '<td>'.$tasks->Platecar.'</td>'.
                                '<td>'.$tasks->IdCardT.'</td>'.
-                               '<td>'.$tasks->IDCard.'</td>'.
-                               '<td>'.$tasks->Telhome.'</td>'.
+                               //'<td>'.$tasks->IDCard.'</td>'.
+                               //'<td>'.$tasks->Telhome.'</td>'.
                                '<td>'.$tasks->Telhand.'</td>'.
-                               '<td>'.$tasks->Carbrand1.'</td>'.
-                               '<td>'.$tasks->CarColor1.'</td>'.
+                               //'<td>'.$tasks->Carbrand1.'</td>'.
+                               //'<td>'.$tasks->CarColor1.'</td>'.
                                '<td>'.$tasks->CtID.'</td>'.
                                '<td>'.$tasks->Status.'</td>'.
                                '<td>
-                               <form method="POST" action="http://task.siwalee.com/task/'.$tasks->id.'" accept-charset="UTF-8"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="ZOqHLDfu5v5OeNQDjTs1TkbDd4WBuMxbZcz7W2Il">                            
-                                    <a href="http://task.siwalee.com/task/'.$tasks->id.'/edit" class="btn btn-primary">Edit</a>
+                               <form method="POST" action="http://task.siwalee.com/card/'.$tasks->id.'" accept-charset="UTF-8"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="wpTNcKemiGZ6DtbG9OlDGJfDiBqHmvb60Dj2ZE4l">                            
+                                    <a href="http://task.siwalee.com/card/'.$tasks->id.'/edit" class="btn btn-primary">เปลี่ยนเลขบัตร</a>
                                 |
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <button type="submit" class="btn btn-danger">ลบบัตร</button>
                                 </form>
                                </td>'.
                                '</tr>';

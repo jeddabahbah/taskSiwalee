@@ -28,6 +28,7 @@ class CardRequest extends Request
             'Name'=>'required',
             'Platecar'=>'required',
             'IdCardT'=>'required',
+            'IDCard'=>'required',
             'Telhand'=>'required',
             'CtID'=>'required',
             'Status'=>'required'

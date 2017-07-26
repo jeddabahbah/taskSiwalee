@@ -21,6 +21,8 @@ Route::resource('card','CardController');
 
 Route::get('search','TaskController@search');
 
+Route::get('search2','CardController@search');
+
 Route::auth();
 
 Route::get('/home', 'HomeController@index');

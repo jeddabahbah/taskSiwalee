@@ -82,18 +82,11 @@ class CardController extends Controller
         $newCard->IDCard = $request->newID;
         $newCard->push();*/
 
-
-        $card = Card::find(1);
+        $card = Card::find(19);
         $newCard = $card->replicate();
-        $newCard->Other = $request->newID;
-        $newCard->Name = $request->newID;
-        $newCard->Platecar = $request->newID;
-        $newCard->IdCardT = $request->newID;
-        $newCard->IDCard = $request->newID;
-        $newCard->Telhand = $request->newID;
-        $newCard->CtID = $request->newID;
-        $newCard->Status = $request->newID;
-        $newTask->save();
+        $newCard->IdCardT = $card->IdCardT;
+        $newCard->IDCard = $card->IdCardT;
+        $newCard->push();
 
         $card->update($request->all());   
         return redirect()->route('card.index')->with('message','item has been updated successfully');
@@ -111,11 +104,11 @@ class CardController extends Controller
         return redirect()->route('card.index')->with('message','item has been deleted successfully');
     }
 
-    public function search2(Request $req)
+   public function search2(Request $req)
     {
         if($req->ajax())
         {
-           $output="";
+           $output2="";
            $card=DB::table('tasks')->where('Other','LIKE','%'.$req->search.'%')
                                    ->orWhere('Platecar','LIKE','%'.$req->search.'%')
                                    ->orWhere('Name','LIKE','%'.$req->search.'%')
@@ -126,31 +119,34 @@ class CardController extends Controller
             if ($card) {
                 foreach ($card as $key => $cards){
 
-                    $output .= '<tr>'.
-
-                               '<td>'.$cards->Other.'</td>'.
+                    $output2 .= '<tr>'.
+                               //'<td>'.$tasks->id.'</td>'.
+                               //'<td>'.$cards->Other.'</td>'.
                                '<td>'.$cards->Name.'</td>'.
                                '<td>'.$cards->Platecar.'</td>'.
                                '<td>'.$cards->IdCardT.'</td>'.
+                               '<td>'.$cards->IDCard.'</td>'.
+                               '<td>'.$cards->Telhome.'</td>'.
                                '<td>'.$cards->Telhand.'</td>'.
+                               '<td>'.$cards->Carbrand1.'</td>'.
+                               '<td>'.$cards->CarColor1.'</td>'.
                                '<td>'.$cards->CtID.'</td>'.
                                '<td>'.$cards->Status.'</td>'.
                                '<td>
-                               <form method="POST" action="http://task.siwalee.com/task/'.$cards->id.'" accept-charset="UTF-8"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="ZOqHLDfu5v5OeNQDjTs1TkbDd4WBuMxbZcz7W2Il">                            
-                                    <a href="http://task.siwalee.com/task/'.$cards->id.'/edit" class="btn btn-primary">Edit</a>
+                               <form method="POST" action="http://task.siwalee.com/card/'.$cards->id.'" accept-charset="UTF-8"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="wpTNcKemiGZ6DtbG9OlDGJfDiBqHmvb60Dj2ZE4l">                            
+                                    <a href="http://task.siwalee.com/card/'.$cards->id.'/edit" class="btn btn-primary">เปลี่ยนเลขบัตร</a>
                                 |
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <button type="submit" class="btn btn-danger">ลบบัตร</button>
                                 </form>
                                </td>'.
                                '</tr>';
                 }
 
-                return Response($output);
+                return Response($output2);
                 }
 
         }
     }
-
 
 
 

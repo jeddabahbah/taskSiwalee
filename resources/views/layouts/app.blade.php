@@ -54,7 +54,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/task') }}">Tasks</a></li>
-                    <li><a href="{{ url('/card') }}">Edit card</a></li>
+                    <li><a href="{{ url('/card') }}">ระบบเปลี่ยนการ์ด</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -101,13 +101,13 @@
     })
     </script>
 
-        <script type="text/javascript">
+<script type="text/javascript">
     $('#search2').on('keyup',function(){
         $value=$(this).val();
         $.ajax({
             type : 'get',
             url  : '{{URL::to('search')}}',
-            data : {'search2':$value},
+            data : {'search':$value},
             success : function(data){
                 console.log(data);
                 $('tbody').html(data);

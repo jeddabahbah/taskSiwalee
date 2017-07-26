@@ -5,57 +5,60 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Update card</div>
+                <div class="panel-heading">เปลี่ยนแปลงเลขบัตร</div>
 
                 <div class="panel-body">
+                    <table class="table">
                         
+                    </table>
+
                         {!! Form::model($card,array('route' => ['card.update',$card->id],'method'=>'PUT')) !!}
                             
                             <div class="form-group">
-                                {!! Form::label('Other','Enter บ้านเลขที่') !!}
-                                {!! Form::text('Other',null,['class'=>'form-control'] ) !!}
+                                {!! Form::hidden('Other','Enter บ้านเลขที่') !!}
+                                {!! Form::hidden('Other',null,['class'=>'form-control'] ) !!}
                             </div>
 
                             <div class="form-group">
-                                {!! Form::label('Name','Enter ชื่อ') !!}
-                                {!! Form::text('Name',null,['class'=>'form-control'] ) !!}
+                                {!! Form::hidden('Name','Enter ชื่อ') !!}
+                                {!! Form::hidden('Name',null,['class'=>'form-control'] ) !!}
                             </div>
 
                             <div class="form-group">
-                                {!! Form::label('Platecar','Enter ทะเบียนรถ') !!}
-                                {!! Form::text('Platecar',null,['class'=>'form-control'] ) !!}
+                                {!! Form::hidden('Platecar','Enter ทะเบียนรถ') !!}
+                                {!! Form::hidden('Platecar',null,['class'=>'form-control'] ) !!}
                             </div>
 
                             <div class="form-group">
-                                {!! Form::label('IdCardT','Enter IdCardT') !!}
+                                {!! Form::label('IdCardT','ใส่เลขที่บัตรใหม่') !!}
                                 {!! Form::text('IdCardT',null,['class'=>'form-control'] ) !!}
                             </div>
 
                             <div class="form-group">
-                                {!! Form::label('IDCard','Enter IDCard') !!}
+                                {!! Form::label('IDCard','ใส่เลขบัตรใหม่อีกครั้ง') !!}
                                 {!! Form::text('IDCard',null,['class'=>'form-control'] ) !!}
                             </div>
 
                         
                             <div class="form-group">
-                                {!! Form::label('Telhand','Enter Telhand') !!}
-                                {!! Form::text('Telhand',null,['class'=>'form-control'] ) !!}
+                                {!! Form::hidden('Telhand','Enter Telhand') !!}
+                                {!! Form::hidden('Telhand',null,['class'=>'form-control'] ) !!}
                             </div>
 
 
                             <div class="form-group">
-                                {!! Form::label('CtID','Enter CtID') !!}
-                                {!! Form::text('CtID',null,['class'=>'form-control'] ) !!}
+                                {!! Form::hidden('CtID','Enter CtID') !!}
+                                {!! Form::hidden('CtID',null,['class'=>'form-control'] ) !!}
                             </div>
 
                             <div class="form-group">
-                                {!! Form::label('Status','Enter Status') !!}
-                                {!! Form::text('Status',null,['class'=>'form-control'] ) !!}
+                                {!! Form::hidden('Status','Enter Status') !!}
+                                {!! Form::hidden('Status',null,['class'=>'form-control'] ) !!}
                             </div>
 
 
                             <div class="form-group">
-                                {!! Form::button('Update',['type'=>'submit','class'=>'btn btn-primary']) !!}                            
+                                {!! Form::button('ยืนยัน',['type'=>'submit','class'=>'btn btn-primary']) !!}                            
                             </div>
 
                             
