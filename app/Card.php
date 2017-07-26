@@ -3,17 +3,21 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use SoftDeletes;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Card extends Model
 {
-   
-    protected $table = 'tasks';
-    protected $fillable = ['Other',
+     use SoftDeletes;
+
+      protected $table = 'tasks';
+      protected $fillable = ['Other',
             'Name',
             'Platecar',
             'IdCardT',
+            'IDCard',
             'Telhand',
             'CtID',
             'Status'];
+
+
 }

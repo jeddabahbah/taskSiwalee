@@ -31,6 +31,11 @@
                             </div>
 
                             <div class="form-group">
+                                {!! Form::label('IDCard','Enter IDCard') !!}
+                                {!! Form::text('IDCard',null,['class'=>'form-control'] ) !!}
+                            </div>
+
+                            <div class="form-group">
                                 {!! Form::label('Telhand','Enter Telhand') !!}
                                 {!! Form::text('Telhand',null,['class'=>'form-control'] ) !!}
                             </div>

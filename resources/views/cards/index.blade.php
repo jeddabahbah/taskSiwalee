@@ -44,6 +44,7 @@
                         <th>Name</th>
                         <th>Platecar</th>
                         <th>IdCardT</th>
+                        <th>IDCard</th>
                         <th>Telhand</th>
                         <th>CtID</th>
                         <th>Status</th>
@@ -56,6 +57,7 @@
                             <td>{{ link_to_route('card.show',$card->Name,[$card->id]) }}</td>
                             <td>{{ link_to_route('card.show',$card->Platecar,[$card->id]) }}</td>
                             <td>{{ link_to_route('card.show',$card->IdCardT,[$card->id]) }}</td>
+                            <td>{{ link_to_route('card.show',$card->IDCard,[$card->id]) }}</td>
                             <td>{{ link_to_route('card.show',$card->Telhand,[$card->id]) }}</td>
                             <td>{{ link_to_route('card.show',$card->CtID,[$card->id]) }}</td>
                             <td>{{ link_to_route('card.show',$card->Status,[$card->id]) }}</td>

@@ -76,11 +76,24 @@ class CardController extends Controller
      */
     public function update(CardRequest $request, Card $card)
     {   
-        /*$card = Card::where(1);
-        $newTask = $card->replicate();
-        $newTask->IdCardT = $request->newID;
-        $newTask->IDCard = $request->newID;
-        $newTask->save();*/
+        /*$card = Card::find(1);
+        $newCard = $card->replicate();
+        $newCard->IdCardT = $request->newID;
+        $newCard->IDCard = $request->newID;
+        $newCard->push();*/
+
+
+        $card = Card::find(1);
+        $newCard = $card->replicate();
+        $newCard->Other = $request->newID;
+        $newCard->Name = $request->newID;
+        $newCard->Platecar = $request->newID;
+        $newCard->IdCardT = $request->newID;
+        $newCard->IDCard = $request->newID;
+        $newCard->Telhand = $request->newID;
+        $newCard->CtID = $request->newID;
+        $newCard->Status = $request->newID;
+        $newTask->save();
 
         $card->update($request->all());   
         return redirect()->route('card.index')->with('message','item has been updated successfully');
